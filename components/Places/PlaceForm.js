@@ -37,10 +37,12 @@ function PlaceForm({ onCreatePlace }) {
           onChangeText={changeTitleHandler}
           value={enteredTitle}
         />
+        <ImagePicker onTakeImage={takeImageHandler} />
+        <LocationPicker onPickLocation={pickLocationHandler} />
       </View>
-      <ImagePicker onTakeImage={takeImageHandler} />
-      <LocationPicker onPickLocation={pickLocationHandler} />
-      <Button onPress={savePlaceHandler}>Add Place</Button>
+      <View style={styles.submitContainer}>
+        <Button onPress={savePlaceHandler}>Add Place</Button>
+      </View>
     </ScrollView>
   );
 }
@@ -65,5 +67,8 @@ const styles = StyleSheet.create({
     borderBottomColor: Colors.primary700,
     borderBottomWidth: 2,
     backgroundColor: Colors.primary100,
+  },
+  submitContainer: {
+    padding: 24,
   },
 });
